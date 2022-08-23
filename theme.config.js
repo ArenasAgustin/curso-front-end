@@ -66,6 +66,8 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: true,
+  footerEditLink: 'Puedes contribuir al curso aquí',
   footerText: <>MIT 2022 © ArenasAgustin.</>,
   unstable_faviconGlyph: '👋',
+  defaultMenuCollapsed: true,
 }
