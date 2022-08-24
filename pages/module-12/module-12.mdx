@@ -1,0 +1,79 @@
+# React - Redux
+
+<p align="center">
+  <img src="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67" />
+</p>
+
+## Usando Redux con React
+
+Para usar redux con react, vamos a usar un paquete llamado [`react-redux`](https://github.com/reactjs/react-redux) que nos ofrece los `bindings` de redux con react. Para instalarlo hacemos:
+
+```
+npm install --save react-redux
+```
+
+### Componentes
+
+Los bindings de `react-redux` están realizados pensandos en el patrón de **separar los Componentes Presentacionales de los Containers**.
+
+|                        | **Presentacionales**                    | **Containers**                                             |
+| ---------------------- | :-------------------------------------- | :--------------------------------------------------------- |
+| **Próposito**          | Cómo se ven las cosas (markup, estilos) | Cómo funcionan las cosas (traer datos, actualizar estados) |
+| **Sabe de Redux**      | NO                                      | SI                                                         |
+| **Para leer datos**    | Lee de props                            | Se suscribe a los estados de Redux                         |
+| **Para cambiar datos** | Invoca callbacks de sus props           | Envía acciones a Redux                                     |
+| **Son escritos**       | A mano                                  | Generados por React Redux                                  |
+
+> Técnicamente podríamos codear los Containers por nosotros mismos usando `subscribe`, pero Redux nos desaconseja de hacer esto, ya que nos proveen de la función `connect`, que nos permite generarlos, y estos Componentes generados están optimizados en términos de performance.
+
+Para generar un Componente que tenga todos los bindings de redux con react, primero vamos a tener que definir las siguientes funciones:
+
+- **mapStateToProps**: Recibe el estado de la apliación y lo mapea a props de react.
+- **mapDispatchToProps**: Recibe el método `dispatch` y retorna callbacks props que vamos a poder pasar a los Componentes presentacionales.
+
+Finalmente, usando `connect` de `react-redux` y pasandole estas dos funciones obtenemos una función lista para darle los binding a un Componente React. Finalmente elegimos que Componente queremos que tenga los bindings y luego lo exportamos. Por ejemplo, vamos a darle los binding al Componente `Main` y lo vamos a exportar como `App`:
+
+```javascript
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actionsCreators from '../actions/actionCreators.js'
+
+import Main from './Main.js'
+
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+    comments: state.comments,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionsCreators, dispatch)
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main)
+
+export default App
+```
+
+## Provider
+
+Todos los Componentes Containers deben tener acceso al `Store` para que puedan suscribirse a ella. Una opción seria pasar el store como un prop a cada componente Container, pero esto se volvería tedioso muy rápidamente, y un posible punto de error. Lo que nos recomienda `redux` es usar un Componente especial de `react-redux` llamado `<Provider>` que [mágicamente](https://facebook.github.io/react/docs/context.html) hace que el Store esté disponible para todos los Container de nuestra app, sin pasarla explícitamente.
+
+```javascript
+import { Provider } from 'react-redux' //Bindings from redux and React
+import store, { history } from './store.js'
+
+const router = (
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={PhotoGrid} />
+        <Route path="view/:postId" component={Single} />
+      </Route>
+    </Router>
+  </Provider>
+)
+```
+
+Ahora vamos a poder acceder a nuestro `store` en cada Componente a través de sus props.
