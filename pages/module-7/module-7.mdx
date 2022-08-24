@@ -43,11 +43,9 @@ Por ejemplo supongamos que quisiéramos crear en nuestra página web un botón r
 
 Con ese código lo que obtendríamos es lo siguiente:
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image src="/img/boton-rojo.png" alt="Boton rojo" width={70} height={45} />
 </div>
-<br />
 
 Ahora bien, vamos a intentar lo mismo utilizando Bootstrap. Para ello necesitaremos agregar a nuestro HTML una referencia a la librería de Bootstrap para poder utilizar todos sus beneficios.
 
@@ -80,8 +78,7 @@ _Veamos que en el header se agrego un link hacía Bootstrap_
 
 Veamos ahora como quedó nuestra página:
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image
     src="/img/boton-bootstrap.png"
     alt="Boton bootstrap"
@@ -89,7 +86,6 @@ Veamos ahora como quedó nuestra página:
     height={50}
   />
 </div>
-<br />
 
 No tuvimos que definir ninguna propiedad CSS para nuestro nuevo botón sino que simplemente le asignamos las clases `btn` y `btn-danger` y Bootstrap se encargó del resto.
 
@@ -143,8 +139,7 @@ body {
 
 El resultado obtenido sería el siguiente:
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image
     src="/img/css-media-query.gif"
     alt="Css media query"
@@ -152,14 +147,12 @@ El resultado obtenido sería el siguiente:
     height={350}
   />
 </div>
-<br />
 
 ##### Bootrstap
 
 Supongamos ahora que queremos cambiar la cantidad de columnas que se muestren en función de la pantalla para que nos queden cuatro columnas en pantallas grandes, dos en medianas y una en pequeñas:
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image
     src="/img/esquema-col.png"
     alt="Esquema col"
@@ -167,7 +160,6 @@ Supongamos ahora que queremos cambiar la cantidad de columnas que se muestren en
     height={150}
   />
 </div>
-<br />
 
 Podríamos realizarlo con CSS Media Queries similar al ejemplo anterior. Así que si quieren pueden intentarlo (Es un buen ejercicio para practicar lo que ya saben de CSS con esta nueva herramienta).
 
@@ -185,8 +177,7 @@ Bootstrap ya tiene integrado un sistema de grillas implementado a partir de flex
 
 El sistema de grilla de Bootstrap permite colocar hasta una suma de 12 'espacios' por fila distribuyéndolos de la forma que se quiera, ya sea colocando 12 columnas de 1 'espacio', 2 columnas de 6 'espacios' o cualquier variante de combinaciones:
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image
     src="/img/bootstrap-col-grid.png"
     alt="Bootstrap col grid"
@@ -194,14 +185,12 @@ El sistema de grilla de Bootstrap permite colocar hasta una suma de 12 'espacios
     height={200}
   />
 </div>
-<br />
 
 _También existe la opción de dejar que Bootrstap identifique la cantidad de columnas que hay y a partir de ello le asigne el mismo ancho a cada una hasta completar la totalidad de la fila (Siempre recordando que el máximo es de 12). Para ello se utiliza simplemente la clase `.col` en cada columna_
 
 Utilizando simplemente esas clases podemos crear múltiples tipos de grillas que se adapten a nuestras pantallas.
 
-<br />
-<div style={{ textAlign: 'center' }}>
+<div style={{ textAlign: 'center', margin: '1em' }}>
   <Image
     src="/img/bootstrap-grid.gif"
     alt="Bootstrap grid"
@@ -209,7 +198,6 @@ Utilizando simplemente esas clases podemos crear múltiples tipos de grillas que
     height={250}
   />
 </div>
-<br />
 
 _En el gif de arriba podemos ver como en función del ancho de la pantalla va cambiando la cantidad de columnas_
 

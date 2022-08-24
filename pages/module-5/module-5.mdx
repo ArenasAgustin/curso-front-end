@@ -29,7 +29,9 @@ HTML define una serie de elementos (o etiquetas, o tags) que serviran para delim
 <element> ... </element>
 ```
 
-<Image src="/img/html.jpg" alt="HTML" width={800} height={350} />
+<div style={{ textAlign: 'center', margin: '1em' }}>
+  <Image src="/img/html.jpg" alt="HTML" width={700} height={250} />
+</div>
 
 Algunos tags html, por su naturaleza, no necesitan tener nada _adentro_. Por lo tanto podemos abreviar su escritura y en vez de abrir y cerrar el tag, simplemente agregamos un `/` antes del bracket final.
 
@@ -236,12 +238,14 @@ Pros:
 
 Para poder aplicar reglas de estilo a los elementos html, necesitamos una forma de saber cómo seleccionar los elementos a los que deseamos aplicar las reglas, para esto sirven los _selectores CSS_.
 
-<Image
-  src="/img/css-declaration-small.png"
-  alt="CSS"
-  width={800}
-  height={500}
-/>
+<div style={{ textAlign: 'center', margin: '1em' }}>
+  <Image
+    src="/img/css-declaration-small.png"
+    alt="CSS"
+    width={700}
+    height={400}
+  />
+</div>
 
 Hay varios tipos de selectores, los más básicos son los de tipo, donde indicamos a qué clase de elemntos se van a aplicar las reglas, el ejemplo de arriba usa un selector de tipo. Está diciendo: _aplicarle a todos los elementos de tipo <p/> la regla de texto color rojo_.
 
@@ -311,7 +315,9 @@ div {
 
 Para poder entender y luego manipular la forma en que los elementos HTML aparecen distribuidos en la página, tenemos que aprender cómo son representados estos en el browser.
 
-<Image src="/img/boxModel.png" alt="Box model" width={800} height={500} />
+<div style={{ textAlign: 'center', margin: '1em' }}>
+  <Image src="/img/boxModel.png" alt="Box model" width={700} height={400} />
+</div>
 
 En un documento html cada elemento es representado como una _caja rectangular_ y en CSS cada una de estas cajas tiene 4 capas que podemos manipular. Yendo desde afuera hacia adentro, las capas son:
 
