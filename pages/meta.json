@@ -7,11 +7,12 @@
   "module-5": "Módulo 5: HTML/CSS",
   "module-6": "Módulo 6: DOM",
   "module-7": "Módulo 7: CSS Avanzado",
+  "optionals-1": "Opcionales fundamentos",
   "module-8": "Módulo 8: REACT I",
   "module-9": "Módulo 9: REACT II",
   "module-10": "Módulo 10: Routing",
   "module-11": "Módulo 11: Redux",
   "module-12": "Módulo 12: React - Redux",
   "module-13": "Módulo 13: React - Hooks",
-  "optionals": "Opcionales"
+  "optionals-2": "Opcionales avanzados"
 }
