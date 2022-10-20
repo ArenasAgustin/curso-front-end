@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 # Javascript I
 
-En esta lección cubriremos:
+En este módulo cubriremos:
 
 - Introducción a Javascript
 - Variables
@@ -38,7 +38,7 @@ const comidafavorita = 'Milanesa'
 
 `var` es la forma declarar una variable en ES5 (ES5 es la versión de JS, hoy en día existe ES6 que es la nueva versión, pero que todavía no es la más usada). Esta es una _palabra clave_ genérica para "variable".
 
-Las dos formas siguentes, si bien son válidas, vamos a utilizarlas más adelante en la carrera, cuando tengamos más claros otros conceptos:
+Las dos formas siguentes, si bien son válidas, vamos a utilizarlas más adelante en el curso, cuando tengamos más claros otros conceptos:
 
 ### let
 
@@ -87,7 +87,7 @@ var negativo = -40
 
 ### Boolean
 
-Los booleanos provienen de la [lógica de Boole](https://es.wikipedia.org/wiki/%C3%81lgebra_de_Boole). Es un concepto que alimenta el código binario y el núcleo de las computadoras. Es posible que haya visto código binario en el pasado (0001 0110…), esto es lógica booleana. Esencialmente significa que tiene dos opciones, activar o desactivar, 0 o 1, verdadero o falso. En Javascript usamos booleanos para significar verdadero o falso. Esto puede parecer simple al principio, pero puede complicarse más adelante.
+Los booleanos provienen de la [lógica de Boole](https://es.wikipedia.org/wiki/%C3%81lgebra_de_Boole). Es un concepto que alimenta el código binario y el núcleo de las computadoras. Es posible que haya visto código binario en el pasado (0001 0110…), esto es lógica booleana. Esencialmente significa que tiene dos opciones, activar o desactivar, 0 o 1, verdadero o falso. En Javascript usamos booleanos para decir verdadero o falso. Esto puede parecer simple al principio, pero puede complicarse más adelante.
 
 ```javascript
 var meEncantaJavascript = true
@@ -171,12 +171,13 @@ Las funciones son una parte muy importante de todo lenguaje de programacion y so
 Ahora que tenemos un conjunto de variables, necesitamos funciones para calcularlas, cambiarlas, hacer algo con ellas. Hay tres formas en que podemos construir una función.
 
 ```javascript
-function miFuncion() {}
-var otraFuncion = function () {}
-var yOtra = () => {}
+function miFuncion() {} // por declaración de función
+var otraFuncion = function () {} // por expresión de función
+var otraFuncionMAs = new Function() // por constructor de función
+var yOtra = () => {} // por expresión de función flecha
 ```
 
-Usaremos la primera forma en esta lección y hablaremos sobre las otras formas en próximas lecciones.
+Usaremos la primera forma en este módulo y hablaremos sobre las otras formas en próximas lecciones.
 
 ### Anatomía de una Función
 
@@ -184,7 +185,7 @@ Usaremos la primera forma en esta lección y hablaremos sobre las otras formas e
 function miFuncion() {}
 ```
 
-Una función comenzará con la palabra clave `function`, esto le dice a lo que sea que esté ejecutando tu programa que lo que sigue es una función y que debe tratarse como tal. Después de eso viene el nombre de la función, nos gusta dar nombres de funciones que describan lo que hacen. Luego viene un paréntesis abierto y uno cercano. Y finalmente, abra y cierre los corchetes. Entre estos corchetes es donde irá todo nuestro código a ejecutar.
+Una función comenzará con la palabra clave `function`, esto le dice a lo que sea que esté ejecutando tu programa que lo que sigue es una función y que debe tratarse como tal. Después de eso viene el nombre de la función, los nombres de funciones describen lo que hacen. Luego viene un paréntesis abierto y uno cerrado. Y finalmente, abra y cierre los corchetes. Entre estos corchetes es donde irá todo nuestro código a ejecutar.
 
 ```javascript
 function logHola() {
@@ -232,7 +233,7 @@ sumarDosNumeros(1, 5) // 6
 
 ### Declaración "return" y Scope
 
-En el ejemplo anterior presentamos la declaración `return`. No vamos a usar `console.log` con todo lo que salga de una función. Lo más probable es que queramos devolver algo. En este caso es la suma de los dos números. Piense en la declaración de retorno ("return") como la única forma en que los datos escapan de una función. No se puede acceder a nada más que a lo que se devuelve fuera de la función. También tenga en cuenta que cuando una función golpea una declaración de retorno, la función detiene inmediatamente lo que está haciendo y "devuelve" lo especificado.
+En el ejemplo anterior presentamos la declaración `return`. No vamos a usar `console.log` con todo lo que salga de una función. Lo más probable es que queramos devolver algo. En este caso es la suma de los dos números. Piense en la declaración de retorno ("return") como la única forma en que los datos escapan de una función. No se puede acceder a nada más que a lo que se devuelve fuera de la función. También tenga en cuenta que cuando una función llega a una declaración de retorno, la función detiene inmediatamente lo que está haciendo y "devuelve" lo especificado.
 
 ```javascript
 function dividirDosNumeros(a, b) {
@@ -277,9 +278,9 @@ function puedeManejar(edad) {
 puedeManejar(22) // true
 ```
 
-Aquí estamos tomando un número (`edad`) y verificando si la declaración es`true` (`22>18`), lo es, por lo que devolveremos`true`, y la función se detendrá. Si no es así, omitirá ese código y la función devolverá `false`.
+Aquí estamos tomando un número (`edad`) y verificando si la declaración es `true` (`22>18`), lo es, por lo que devolveremos `true`, y la función se detendrá. Si no es así, omitirá ese código y la función devolverá `false`.
 
-El símbolo "mayor que" (`>`) que ve en el último ejemplo se llama _Operador de comparación_. Los operadores de comparación evalúan dos elementos y devuelven `verdadero` o`falso`. Estos operadores son: `<`, `<=`, `>`, `> =`, `===`, `! ==`. Aprenderemos más sobre estos operadores en la próxima lección.
+El símbolo "mayor que" (`>`) que ve en el último ejemplo se llama _Operador de comparación_. Los operadores de comparación evalúan dos elementos y devuelven `verdadero` o `falso`. Estos operadores son: `<`, `<=`, `>`, `> =`, `===`, `! ==`. Aprenderemos más sobre estos operadores en el próximo módulo.
 
 ## Recursos adicionales
 
