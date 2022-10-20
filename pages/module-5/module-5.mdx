@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 # Fundamentos HTML/CSS
 
-En esta clase veremos:
+En este módulo veremos:
 
 - Introducción a HTML.
 - Elementos/tags HTML básicos.
@@ -150,7 +150,7 @@ Son los tags que contienen los items de la lista ('list item').
 
 ## CSS
 
-Como vimos, HTML nos sirve para dar estructura al contenido. En las primeras épocas de internet las páginas eran así. De hecho, todavía esta online la [primera página web](http://info.cern.ch/hypertext/WWW/TheProject.html). Como ven es bastante aburrida.
+Como vimos, HTML nos sirve para dar estructura al contenido. En las primeras épocas de internet las páginas eran simples. De hecho, todavía esta online la [primera página web](http://info.cern.ch/hypertext/WWW/TheProject.html). Como ven es bastante aburrida.
 Luego se introdujo el concepto de CSS (Cascading Style Sheets); una forma de poder agregar color y estilos en nuestras páginas!
 
 ## Reglas CSS
@@ -161,7 +161,7 @@ Por ejemplo:
 
 ```css
 html {
-  color: red; /* "Color" es la propiedad y "red" el valor */
+  color: red; /* "color" es la propiedad y "red" el valor */
   font-size: 12px; /* "font-size" es la propiedad y "12px" el valor */
 }
 ```
@@ -190,7 +190,9 @@ Pros:
 
 - Fácil de escribir y leer.
 - Cómo se aplican a un sólo elemento no hay forma de confundirse y que se aplique la regla a un elemento no deseado.
-  Cons:
+
+Contras:
+
 - La regla aplica a un sólo elemento, si quisieramos que varios elementos tengan la misma regla, deberíamos copypastear!
 
 ### `<style/>`
@@ -212,7 +214,9 @@ Pros:
 
 - Lugar central donde podemos escribir las reglas CSS del documento
 - Podemos compartir reglas entre varios elementos iguales
-  Cons:
+
+Contras:
+
 - No podemos compartir las reglas con _otro_ documento HTML.
 - Hay que prestar atención a las reglas, y a qué elementos se aplican.
 
@@ -235,7 +239,9 @@ Pros:
 - Lugar central donde podemos escribir las reglas CSS del documento
 - Podemos compartir reglas entre varios elementos iguales
 - Podemos compartir reglas entre varios documentos HTML
-  Cons:
+
+Contras:
+
 - Hay que prestar atención a las reglas, y a qué elementos se aplican.
 
 ### Selectores
@@ -251,9 +257,9 @@ Para poder aplicar reglas de estilo a los elementos html, necesitamos una forma 
   />
 </div>
 
-Hay varios tipos de selectores, los más básicos son los de tipo, donde indicamos a qué clase de elemntos se van a aplicar las reglas, el ejemplo de arriba usa un selector de tipo. Está diciendo: _aplicarle a todos los elementos de tipo <p/> la regla de texto color rojo_.
+Hay varios tipos de selectores, los más básicos son los de tipo, donde indicamos a qué clase de elemntos se van a aplicar las reglas, el ejemplo de arriba usa un selector de tipo. Está diciendo: _aplicarle a todos los elementos de tipo `<p>` la regla de texto color rojo_.
 
-El selector de tipo se puede usar con cualquier tipo de tag: p, div, body, etc. Otra forma de usar selectors poniendole un _nombre_ o _identificador_ a cada elemento HTML. Para esto existe un `atributo` que pueden recibir todos los tags llamados: `id` y `class`.
+El selector de tipo se puede usar con cualquier tipo de tag: p, div, body, etc. Otra forma de usar selectors poniendole un _nombre_ o _identificador_ a cada elemento HTML. Para esto existe un atributo que pueden recibir todos los tags llamados: `id` y `class`.
 
 ```html
 <div id="divId"></div>
@@ -266,29 +272,34 @@ El selector de tipo se puede usar con cualquier tipo de tag: p, div, body, etc. 
 
 #### Selectores básicos
 
-- **Selector de tipo**: Selecciona todos los elementos que coinciden con el nombre del elemento especificado.
-  Sintaxis: eltname
-  Ejemplo: input se aplicará a cualquier elemento `<input>`.
-- **Selector de clase**:
-  Selecciona todos los elementos que tienen el atributo de class especificado.
-  Sintaxis: .classname
-  Ejemplo: .index seleccionará cualquier elemento que tenga la clase "index".
-- **Selector de ID**
-  Selecciona un elemento basándose en el valor de su atributo id. Solo puede haber un elemento con un determinado ID dentro de un documento.
-  Sintaxis: #idname
-  Ejemplo: #toc se aplicará a cualquier elemento que tenga el ID "toc".
-- **Selector universal**
-  Selecciona todos los elementos. Opcionalmente, puede estar restringido a un espacio de nombre específico o a todos los espacios de nombres.
-  Sintaxis: _ ns|_ _|_
-  Ejemplo: \* se aplicará a todos los elementos del documento.
-- **Selector de atributo**
-  Selecciona elementos basándose en el valor de un determinado atributo.
-  Sintaxis: `[attr][attr=value]` `[attr~=value][attr|=value` `[attr^=value][attr$=value]` `[attr*=value]`
-  Ejemplo: `[autoplay]` seleccionará todos los elementos que tengan el atributo "autoplay" establecido (a cualquier valor).
+**Selector de tipo**: Selecciona todos los elementos que coinciden con el nombre del elemento especificado.
+
+- Sintaxis: tagname
+- Ejemplo: input se aplicará a cualquier elemento `<input>`.
+
+**Selector de clase**:Selecciona todos los elementos que tienen el atributo de class especificado.
+
+- Sintaxis: .classname
+- Ejemplo: .index seleccionará cualquier elemento que tenga la clase "index".
+
+**Selector de ID**: Selecciona un elemento basándose en el valor de su atributo id. Solo puede haber un elemento con un determinado ID dentro de un documento.
+
+- Sintaxis: #idname
+- Ejemplo: #toc se aplicará a cualquier elemento que tenga el ID "toc".
+
+**Selector universal**: Selecciona todos los elementos. Opcionalmente, puede estar restringido a un espacio de nombre específico o a todos los espacios de nombres.
+
+- Sintaxis: _ ns|_ _|_
+- Ejemplo: \* se aplicará a todos los elementos del documento.
+
+**Selector de atributo**: Selecciona elementos basándose en el valor de un determinado atributo.
+
+- Sintaxis: `[attr][attr=value]` `[attr~=value][attr|=value]` `[attr^=value][attr$=value]` `[attr*=value]`
+- Ejemplo: `[autoplay]` seleccionará todos los elementos que tengan el atributo "autoplay" establecido (a cualquier valor).
 
 ### Anatomía de las reglas de estilo
 
-Ahora que sabemos como _seleccionar_ los elementos a los que queremos aplicar las reglas podemos escribir qué reglas queremos que se apliquen. Para el ejemplo vamos a usar la etiqueta `<style\/>`.
+Ahora que sabemos como _seleccionar_ los elementos a los que queremos aplicar las reglas podemos escribir qué reglas queremos que se apliquen. Para el ejemplo vamos a usar la etiqueta `<style>`.
 
 ```html
 <style>
@@ -372,9 +383,9 @@ Cuando establecemos el _alto_ y el _ancho_ de un elemento a traves de la regla c
 
 Por ejemplo. Si establecemos la altura del contenido en 20 px y el ancho en 20 px, el relleno en 5 px, el borde en 1 px y el margen en 10 px.
 
-Altura real = 25px (contenido) + 2 _ 5px (relleno, cada lado) + 2 _ 1 (borde de cada lado) + 2 \* 10 (margen, cada lado) = 57px
+Altura real = 25px (contenido) + 2 \* 5px (padding, cada lado) + 2 \* 1px (borde de cada lado) + 2 \* 10px (margen, cada lado) = 57px
 
-Ancho real = 25px (contenido) + 2 _ 5px (relleno, cada lado) + 2 _ 1 (borde de cada lado) + 2 \* 10 (margen, cada lado) = 57px
+Ancho real = 25px (contenido) + 2 \* 5px (padding, cada lado) + 2 \* 1px (borde de cada lado) + 2 \* 10px (margen, cada lado) = 57px
 
 Saber esto nos ayudará a dimensionar y posicionar nuestros elementos correctamente.
 
@@ -389,7 +400,7 @@ El background se puede establecer en una variedad de reglas, la más común ser�
     background: red;
   }
   #divId {
-    background: url ('http://imageurl.com/image.jpg');
+    background: url('https://cursofrontend.vercel.app/img/image.gif');
   }
 ```
 
@@ -403,18 +414,18 @@ No podemos usar ancho o alto para el texto, pero podemos determinar el tamaño d
 
 ## Hojas de estilo externas y el elemento `<link>`
 
-Hemos explicado cómo usar el elemento html `<style>`. Esto está bien si tiene una página web muy pequeña y un estilo mínimo, pero la mayoría de las páginas comenzarían a sentirse abarrotadas muy rápidamente si incluimos todo nuestro CSS en el HTML. Afortunadamente, tenemos una solución para eso, hojas de estilo externas y el elemento \ `<link>`.
+Hemos explicado cómo usar el elemento html `<style>`. Esto está bien si tiene una página web muy pequeña y un estilo mínimo, pero la mayoría de las páginas comenzarían a sentirse abarrotadas muy rápidamente si incluimos todo nuestro CSS en el HTML. Afortunadamente, tenemos una solución para eso, hojas de estilo externas y el elemento `<link>`.
 
-Una hoja de estilo externa es simplemente otro archivo con el tipo de archivo .css. Convencionalmente, este archivo se llama algo así como "style.css". Podemos tomar todas las reglas de estilo que escribimos entre las etiquetas \ `<style>` y transferirlas directamente al archivo css. No necesitamos incluir nada más, solo las reglas de estilo.
+Una hoja de estilo externa es simplemente otro archivo con el tipo de archivo .css. Convencionalmente, este archivo se llama algo así como "style.css". Podemos tomar todas las reglas de estilo que escribimos entre las etiquetas `<style>` y transferirlas directamente al archivo css. No necesitamos incluir nada más, solo las reglas de estilo.
 
-Una vez que tengamos una hoja de estilo externa creada, necesitaremos asegurarnos de que el navegador lea ese archivo y aplique las reglas a nuestra página. Le decimos al navegador que busque ese archivo utilizando el elemento \ `<link>`. Podemos eliminar las etiquetas \ `<style>` y en su lugar agregar el elemento \ `<link>`. Dentro del elemento de enlace, necesitaremos proporcionar la ubicación y el tipo de archivo que estamos vinculando. Utilizaremos dos banderas, la bandera "rel" y la bandera "href".
+Una vez que tengamos una hoja de estilo externa creada, necesitaremos asegurarnos de que el navegador lea ese archivo y aplique las reglas a nuestra página. Le decimos al navegador que busque ese archivo utilizando el elemento `<link>`. Podemos eliminar las etiquetas `<style>` y en su lugar agregar el elemento `<link>`. Dentro del elemento de enlace, necesitaremos proporcionar la ubicación y el tipo de archivo que estamos vinculando. Utilizaremos dos atributos, el atributo "rel" y el atributo "href".
 
-La bandera rel solo le dirá al navegador qué tipo de archivo es y cómo procesarlo. En nuestro caso lo configuraremos como "hoja de estilo"
+El atributo rel solo le dirá al navegador qué tipo de archivo es y cómo procesarlo. En nuestro caso lo configuraremos como "hoja de estilo"
 
-La bandera href le dirá al navegador dónde encontrar el archivo. Si el archivo está en la misma carpeta que nuestro archivo html, podemos configurarlo en: "./styles.css" (esta ruta será relativa)
+El atributo href le dirá al navegador dónde encontrar el archivo. Si el archivo está en la misma carpeta que nuestro archivo html, podemos configurarlo en: "./styles.css" (esta ruta será relativa)
 
 ```HTML
-  <link rel = "stylesheet" href = "./ styles.css" />
+  <link rel = "stylesheet" href = "./styles.css" />
 ```
 
 Ahora que tenemos nuestra hoja de estilo externa vinculada a nuestro archivo HTML, deberíamos ver las reglas de estilo que establecemos reflejadas en nuestra página.
