@@ -110,7 +110,7 @@ div {
 
 ## Introducción a Flexbox
 
-Introducido en CSS3, Flexbos es una nueva e interesante característica. La misma nos permite posicionar nuestros elementos en relación a su _parent_ y entre ellos. Ya no necesitamos aplicar `hacks` para cosas como centrar elementos. Esto nos permite que el diseño `mobile-friendly` sea excelente y nos hace dedicar menos tiempo tratando de posicionar elementos como corresponde. Flexbox se puede complicar muy rápido, pero veremos los aspectos básicos a continuación.
+Introducido en CSS3, Flexbox es una nueva e interesante característica. La misma nos permite posicionar nuestros elementos en relación a su _parent_ y entre ellos. Ya no necesitamos aplicar `hacks` para cosas como centrar elementos. Esto nos permite que el diseño `mobile-friendly` sea excelente y nos hace dedicar menos tiempo tratando de posicionar elementos como corresponde. Flexbox se puede complicar muy rápido, pero veremos los aspectos básicos a continuación.
 
 ### `display: flex` e `inline-flex`
 
@@ -122,9 +122,10 @@ Ahora que nuestro contenedor (elemento) es `flex`, podemos imaginarlo como una g
 
 - `center`: centrará el elemento (o grupo de elementos) a lo largo de un eje en el que aplica esta regla.
 - `flex-start`: Este es el valor por defecto de cada `flex box`, mostrará todos los elementos en un grupo al comienzo de una fila o columna.
-- `flex-end`: es lo opuesto a `flex-start`, mostrará los elementos al final de un grupo al comienzo de una fila o columna.
+- `flex-end`: es lo opuesto a `flex-start`, mostrará los elementos al final de una fila o columna.
 - `space-between`: Esta regla espaciará uniformemente el elemento o los elementos a lo largo de la fila o columna. El primer elemento estará como `flex-start` y el último como `flex-end`.
 - `space-around`: Similar a `space-between`, pero aplicará márgenes igualitarios entre cada elemento, por lo que ningún elemento estara directamente sobre el borde del contenedor.
+- `space-evenly`: Similar a `space-around`, pero aplicará márgenes igualitarios entre cada elemento y al comienzo y al final del contenedor.
 
 Ejemplo: si quisiésemos nuestros elementos centrados en el medio exacto de un `flex box`, usaríamos lo siguiente:
 
@@ -148,6 +149,22 @@ Esta propiedad puede cambiar cómo el navegador interpreta `justify-content` (JC
 ### `align-self`
 
 Por último, cubriremos una propiedad más avanzada llamada `align-self`. La misma será aplicada a un elemento dentro del `flex box` del cual queremos separar el control de `align-items`. Si le damos la propiedad `align-self`, podemos colocarla en cualquier lugar a lo largo del eje de elementos de alineación que queramos. (Nota: NO existe `justify-self`, esta es la razón principal por la que los desarrolladores cambiarán la dirección de `flex`).
+
+## Propiedades personalizadas
+
+En CSS, las propiedades personalizadas (también conocidas como variables) son entidades definidas por autores de CSS que contienen valores específicos que se pueden volver a utilizar en un documento o en otro. Se establecen mediante la notación de propiedades personalizadas `--nombre: valor;` y se acceden mediante la función `var()`.
+
+Por ejemplo
+
+```css
+:root {
+  --div-color: red;
+}
+
+.div {
+  color: var(--div-color);
+}
+```
 
 ## Recursos adicionales
 
