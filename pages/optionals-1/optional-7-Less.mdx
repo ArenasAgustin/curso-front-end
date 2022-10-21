@@ -1,14 +1,23 @@
-import Image from 'next/image'
-
 # LESS
+
+En este módulo cubriremos:
+
+- Variables
+- Funciones
+- Anidado
+- Importación
+- Mixins
+- Herencia
+
+### LESS
 
 En este módulo nos centraremos en el preprocesador de CSS llamado LESS (Leaner Style Sheets), tiene un tipo de sintaxis muy similar al código CSS pero con ciertos agregados por lo que va a ser más sencillo entenderlo.
 
-### Variables
+## Variables
 
-LESS nos permite utilizar variables dentro de nuestro archivo de estilos para evitar la repetición innecesaria de definiciones de propiedades, por ejemplo no nos resulta tan fácil recordar un código de un color en formato hexadecimal en cambio si pudiéramos definirlo una única vez y asignárselo a una variable con un nombre representativo, nos sería mucho más sencillo.
+LESS nos permite utilizar variables para evitar la repetición innecesaria de definiciones de propiedades, por ejemplo no nos resulta tan fácil recordar un código de un color en formato hexadecimal en cambio si pudiéramos definirlo una única vez y asignárselo a una variable con un nombre representativo, nos sería mucho más sencillo.
 
-Ejemplo de código SCSS:
+Ejemplo de código LESS:
 
 ```less
 @color-fondo: #f55;
@@ -105,7 +114,7 @@ No es necesario declarar las variables antes de usarlas, por lo que el siguiente
 @var: 200px;
 ```
 
-### Funciones
+## Funciones
 
 LESS nos provee de ciertas funciones que nos permiten transformar colores, manipular strings y realizar cálculos matemáticos.
 
@@ -126,7 +135,7 @@ En este caso por un lado con la función `percentage` estamos convirtiendo el va
 
 _Para ver la documentación completa de las funciones disponibles ingresar [aquí](http://lesscss.org/functions/)_
 
-### Anidado
+## Anidado
 
 LESS también nos permite anidar definiciones de estilos CSS similar a como es una estructura HTML:
 
@@ -160,7 +169,7 @@ El siguiente código:
   @media (min-width: 768px) {
     width: 600px;
     @media (min-resolution: 192dpi) {
-      background-image: url(/img/retina2x.png);
+      background-image: url('/img/image.gif');
     }
   }
   @media (min-width: 1280px) {
@@ -171,7 +180,7 @@ El siguiente código:
 
 Se traduciría en:
 
-```less
+```css
 .component {
   width: 300px;
 }
@@ -182,7 +191,7 @@ Se traduciría en:
 }
 @media (min-width: 768px) and (min-resolution: 192dpi) {
   .component {
-    background-image: url(/img/retina2x.png);
+    background-image: url('/img/image.gif');
   }
 }
 @media (min-width: 1280px) {
@@ -192,7 +201,7 @@ Se traduciría en:
 }
 ```
 
-### Importación
+## Importación
 
 La directiva `@import` nos permite incluir el contenido de otros archivos en el actual. Supongamos que tenemos un archivo less llamado "general.less" como el siguiente:
 
@@ -222,7 +231,7 @@ De esta forma en nuestro último archivo de estilos también vamos a poder conte
 
 _Observen que no es necesario aclarar la extensión del archivo `general`, LESS automáticamente asume que es un archivo de estilos válido_
 
-### Mixins
+## Mixins
 
 Los mixins nos permiten incluir un set de propiedades ya definido dentro de otro.
 
@@ -319,7 +328,7 @@ Esto resultaría en:
 }
 ```
 
-### Herencia
+## Herencia
 
 Por último también es posible, heredar/compartir las propiedades de un selector en otro. Esto es útil para aquellos casos en los que entre dos selectores comparten la mayor parte de los atributos pero tienen una o algunas pequeñas diferencias.
 

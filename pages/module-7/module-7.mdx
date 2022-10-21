@@ -246,3 +246,338 @@ Estos son algunos de lo preprocesadores CSS más populares:
 
 _Si quieren jugar un poco con distintos preprocesadores [codepen](https://codepen.io/pen/) nos brinda un entorno de fácil configuración. En la configuración del panel de CSS podemos seleccionar el que queramos_
 
+### SASS
+
+En este curso nos centraremos en el preprocesador de CSS llamado SASS (Syntactically Awesome Stylesheets), del cual podemos usar 2 sintaxis diferentes: SCSS y SASS. En este curso utilizaremos la sintaxis SCSS.
+
+#### SCSS
+
+SCSS es la sintaxis de SASS que más se parece a CSS. Es decir, es una sintaxis que utiliza llaves y punto y coma. Por ejemplo:
+
+```scss
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+```
+
+#### SASS
+
+SASS es la sintaxis de SASS que menos se parece a CSS. Es decir, es una sintaxis que utiliza sangrías y no utiliza punto y coma. Por ejemplo:
+
+```sass
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+```
+
+### Variables
+
+Sass nos permite utilizar variables para evitar la repetición innecesaria de definiciones de propiedades, por ejemplo no nos resulta tan fácil recordar un código de un color en formato hexadecimal en cambio si pudiéramos definirlo una única vez y asignárselo a una variable con un nombre representativo, nos sería mucho más sencillo.
+
+Ejemplo de código SCSS:
+
+```scss
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$height: 100px;
+$width: $height * 2; // tambien se pueden hacer operaciones sobre las variables
+
+h1 {
+  font: 100% $font-stack;
+  color: $primary-color;
+  width: $width;
+  height: $height;
+}
+```
+
+_En este ejemplo podemos ver como definimos una variable `$font-stack` y la asignamos a la propiedad `font` de `body`_
+
+Luego este código va a ser compilado en a un archivo CSS para que pueda ser interpretado por los navegadores por lo que el ejemplo anterior quedaría así:
+
+```css
+h1 {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  width: 200px;
+  height: 100px;
+}
+```
+
+Al igual que en otros lenguajes de programación, las variables tienen un scope determinado, primero se analiza si en el contexto actual se encuentra definida dicha variable y si no la encuentra la buscará en el scope padre
+
+```scss
+$var: red;
+
+h1 {
+  $var: white;
+  color: $var; // white
+}
+```
+
+La variable de la primer línea podrá utilizarse dentro del resto de las definiciones pero la que se encuentra dentro de #page sólo será válida allí. Por otra parte, el valor correspondiente a la propiedad color va a ser white ya que en dicho contexto si se encuentra definido el valor de \$var. En cambio si tuvieramos algo como lo siguiente:
+
+```scss
+$var: red;
+
+#page {
+  color: $var; // red
+}
+```
+
+En este caso el valor de \$var sería red ya que en su contexto no está definida la variable pero en el contexto global sí por lo que toma su valor de allí.
+
+### Selectores
+
+```scss
+$my-selector: banner;
+
+.#{my-selector} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+```
+
+### Propiedades
+
+```scss
+$my-property: font-size;
+
+p {
+  #{$my-property}: 16px;
+}
+```
+
+### URLs
+
+```scss
+$images: '../img';
+
+body {
+  color: #444;
+  background: url('#{$images}/white-sand.png');
+}
+```
+
+### Built-In Modules
+
+SASS nos provee de ciertos Built-In Modules que nos permiten transformar colores, manipular strings y realizar cálculos matemáticos.
+
+Ejemplo de utilización:
+
+```scss
+$base: #f04615;
+$width: 0.5;
+
+.class {
+  width: percentage($width);
+  color: saturate($color: $base, $amount: 5%);
+  background-color: adjust-hue(lighten($base, 25%), 8);
+}
+```
+
+En este caso por un lado con la función percentage estamos convirtiendo el valor 0.5 en 5% y por otro lado, con la función saturate estamos incrementando la saturación del color base en un 5%.
+
+Para ver la documentación completa de las funciones disponibles ingresar [aquí](https://sass-lang.com/documentation/modules)
+
+### Anidado
+
+SASS también nos permite anidar definiciones de estilos CSS similar a como es una estructura HTML:
+
+```scss
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+```
+
+_En este caso estamos asignándole propiedades a los elementos ul, li y a que se encuentren dentro de un nav_
+
+Los mismo puede realizarse con la directiva `@media`:
+
+El siguiente código:
+
+```scss
+.component {
+  width: 300px;
+  @media (min-width: 768px) {
+    width: 600px;
+    @media (min-resolution: 192dpi) {
+      background-image: url('/img/image.gif');
+    }
+  }
+  @media (min-width: 1280px) {
+    width: 800px;
+  }
+}
+```
+
+Se traduciría en:
+
+```css
+.component {
+  width: 300px;
+}
+@media (min-width: 768px) {
+  .component {
+    width: 600px;
+  }
+}
+@media (min-width: 768px) and (min-resolution: 192dpi) {
+  .component {
+    background-image: url('/img/image.gif');
+  }
+}
+@media (min-width: 1280px) {
+  .component {
+    width: 800px;
+  }
+}
+```
+
+## Modules
+
+La directiva `@use` nos permite incluir el contenido de otros archivos en el actual. Supongamos que tenemos un archivo sass llamado "\_general.scss" como el siguiente:
+
+```css
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+```
+
+Podríamos importar dichas definiciones de atributos en otro less de la siguiente forma:
+
+```scss
+@use 'general';
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: red;
+}
+```
+
+De esta forma en nuestro último archivo de estilos también vamos a poder contener las definiciones de "\_general.scss".
+
+_Observen que no es necesario aclarar la extensión del archivo `general`, SASS automáticamente asume que es un archivo de estilos válido_
+
+## Mixins
+
+Los mixins nos permiten incluir un set de propiedades ya definido dentro de otro.
+
+```scss
+@mixin important-text {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+```
+
+Ahí estamos creando el mixin llamado `important-text` que luego podemos utilizar de la siguiente forma:
+
+```scss
+.danger {
+  @include important-text();
+  background-color: red;
+}
+
+.success {
+  @include important-text();
+  background-color: green;
+}
+```
+
+Esto se va a traducir a codigo CSS quivalente a:
+
+```css
+.danger {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+  background-color: green;
+}
+```
+
+#### Parametros
+
+Los mixin pueden recibir parámetros:
+
+```scss
+@mixin bordered($color, $width) {
+  border: $width solid $color;
+}
+
+.myArticle {
+  @include bordered(blue, 1px);
+}
+
+// Es posible indicar el nombre del parámetro al invocar el mixin
+// para evitar tener que respetar un orden en particular
+.myArticle-2 {
+  @include bordered($width: 20px, $color: #33acfe);
+}
+```
+
+_Aquí lo que estamos haciendo es definir un mixin que recibe dos parámetros (color y width) que luego van a ser utilizados para definir el borde del elemento. Con ello podemos reutilizar el mixin simplemente llamándolo con diferentes colores o anchos como en el ejemplo que se le está dando un color azul y un borde de un pixel a los elementos con la clase `myArticle`_
+
+##### Valores por defecto
+
+Adicionalmente se puede setear un valor por defecto para dichos parámetros para que, en el caso de que no se les indique un valor, tomen el por defecto:
+
+```scss
+@mixin bordered($color: blue, $width: 1px) {
+  border: $width solid $color;
+}
+
+.myArticle-default {
+  @include bordered();
+}
+```
+
+## Herencia
+
+Por último también es posible, heredar/compartir las propiedades de un selector en otro. Esto es útil para aquellos casos en los que entre dos selectores comparten la mayor parte de los atributos pero tienen una o algunas pequeñas diferencias.
+
+```scss
+.button-basic {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-report {
+  @extend .button-basic;
+  background-color: red;
+}
+
+.button-submit {
+  @extend .button-basic;
+  background-color: green;
+  color: white;
+}
+```
+
+_En este caso el botón de report y de submit extienden las propiedades del botón básico manteniendo todas sus propiedades pero agregándole algunas más que son propias de ellas_
+
+Con esto cubrimos la mayor parte de las funcionalidades agregadas por SASS pero existen otras que para aquel que le interese indagar aun más sobre este tema puede acceder a la documentación oficial [aquí](https://sass-lang.com/)
