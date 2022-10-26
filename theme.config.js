@@ -52,7 +52,7 @@ export default {
       />
       <meta
         property="og:image"
-        content={`${defaultProduct?.image_1.thumbnail}`}
+        content="https://cursofrontend.vercel.app/cursofrontend.png"
       />
 
       {/* Twitter */}
@@ -68,7 +68,7 @@ export default {
       />
       <meta
         property="twitter:image"
-        content={`${defaultProduct?.image_1.thumbnail}`}
+        content="https://cursofrontend.vercel.app/cursofrontend.png"
       />
     </>
   ),
