@@ -5,7 +5,7 @@ export default {
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">
-        Curso Front-end
+        Curso Front-end – ArenasAgustin
       </span>
     </>
   ),
@@ -16,7 +16,10 @@ export default {
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="es" />
-      <meta name="apple-mobile-web-app-title" content="Curso Front-end" />
+      <meta
+        name="apple-mobile-web-app-title"
+        content="Curso Front-end – ArenasAgustin"
+      />
 
       <link rel="apple-touch-icon" sizes="256x256" href="/colegio256.png" />
       <link
@@ -36,7 +39,7 @@ export default {
       <meta name="msapplication-TileImage" content="/colegio256.png" />
 
       <title>Curso Front-end</title>
-      <meta name="title" content="Curso Front-end" />
+      <meta name="title" content="Curso Front-end – ArenasAgustin" />
       <meta
         name="description"
         content="Proyecto para que conozcas desde conceptos básicos hasta un nivel avanzado de front-end de aplicaciones web. En este proyecto se abarca JavaScript, HTML, CSS, React y un poco de Redux, con explicaciones, ejemplos, demostraciones y actividades."
@@ -45,14 +48,14 @@ export default {
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://cursofrontend.vercel.app/" />
-      <meta property="og:title" content="Curso Front-end" />
+      <meta property="og:title" content="Curso Front-end – ArenasAgustin" />
       <meta
         property="og:description"
         content="Proyecto para que conozcas desde conceptos básicos hasta un nivel avanzado de front-end de aplicaciones web. En este proyecto se abarca JavaScript, HTML, CSS, React y un poco de Redux, con explicaciones, ejemplos, demostraciones y actividades."
       />
       <meta
         property="og:image"
-        content="https://cursofrontend.vercel.app/cursofrontend.png"
+        content="https://cursofrontend.vercel.app/colegio512.png"
       />
 
       {/* Twitter */}
@@ -61,14 +64,17 @@ export default {
         property="twitter:url"
         content="https://cursofrontend.vercel.app/"
       />
-      <meta property="twitter:title" content="Curso Front-end" />
+      <meta
+        property="twitter:title"
+        content="Curso Front-end – ArenasAgustin"
+      />
       <meta
         property="twitter:description"
         content="Proyecto para que conozcas desde conceptos básicos hasta un nivel avanzado de front-end de aplicaciones web. En este proyecto se abarca JavaScript, HTML, CSS, React y un poco de Redux, con explicaciones, ejemplos, demostraciones y actividades."
       />
       <meta
         property="twitter:image"
-        content="https://cursofrontend.vercel.app/cursofrontend.png"
+        content="https://cursofrontend.vercel.app/colegio512.png"
       />
     </>
   ),
